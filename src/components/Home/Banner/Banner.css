@@ -1,0 +1,12 @@
+.banner {
+    width: 60%;
+    height: 60vh;
+    margin: auto
+}
+.banner-content {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    left: 25%;
+    width: 30%
+}

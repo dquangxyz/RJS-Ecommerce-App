@@ -1,0 +1,29 @@
+.footer-link {
+	font-size: 0.85rem;
+	position: relative;
+	color: #999;
+	transition: all 0.3s;
+}
+.footer-link:hover,
+.footer-link:focus {
+	padding-left: 0.6rem;
+	color: #fff;
+	text-decoration: none;
+}
+.footer-link:hover::before,
+.footer-link:focus::before {
+	opacity: 1;
+}
+.footer-link::before {
+	content: '\f0da';
+	display: inline-block;
+	font-weight: 900;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	color: #fff;
+	transition: all 0.3s;
+	opacity: 0;
+}

@@ -1,0 +1,14 @@
+.category-list {
+    margin: 20px auto;
+    width: 60%;
+}
+.category-list-row {
+    width: 100%;
+    margin: auto
+}
+.category:hover {
+    opacity: 0.5;
+}
+.category img {
+    width: 100%
+}
