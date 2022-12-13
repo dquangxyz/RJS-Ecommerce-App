@@ -1,11 +1,11 @@
 .product-modal {
     width: 70vw;
-    height: 70vh;
     background-color: white;
     position: fixed;
-    top: 15%;
+    top: 10%;
     box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
     z-index: 10;
+    padding: 30px;
 }
 .product-modal .product-image {
     max-height: 70vh;
@@ -19,4 +19,11 @@
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
     z-index: 5;
+}
+#btn-close {
+    position: relative;
+    left: 98%;
+    border: none;
+    background-color: white;
+    margin-bottom: 20px;
 }

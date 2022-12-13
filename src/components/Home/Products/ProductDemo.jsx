@@ -23,7 +23,7 @@ const ProductDemo = (props) => {
     return (
         <div className='col-xl-3 col-lg-4 col-sm-6'>
             <div className='position-relative mb-3' onClick={clickHandler}>
-                <img className='img-fluid' src={props.img1} alt='' />
+                <img className='product-image img-fluid' src={props.img1} alt='' />
             </div>
             <h6><Link to={`/detail/${props.id}`} className='reset-anchor' >{props.name}</Link></h6>
             <p className='small text-muted'>{formatCurrency(props.price)} VND</p>
