@@ -10,3 +10,62 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* DETAIL PAGE */
+.detailed-product-wrapper1 {
+  display: flex;
+  width: 60%;
+  margin: 40px auto;
+}
+.detailed-product-wrapper2 {
+  width: 60%;
+  margin: 40px auto;
+}
+.small-image {
+  height: 60px;
+  width: auto;
+}
+.medium-image {
+  width: 300px;
+  height: auto
+}
+.large-image {
+  width: 500px;
+  height: auto
+}
+.btn-increase, .btn-decrease {
+  cursor: pointer;
+}
+.product-long-desc {
+  width: 50%;
+}
+.related-products {
+  display: flex;
+}
+
+/* REGISTER PAGE */
+.signup-container {
+  width: 40%;
+  margin: 40px auto;
+  border: 1px solid black;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.signup-container div {
+  display: flex;
+  justify-content: center;
+}
+.signup-container form {
+  margin-top: 50px;
+}
+.signup-container form input {
+  width: 80%;
+  margin: 0 auto;
+  line-height: 50px;
+}
+.signup-container .btn-signup {
+  width: 80%;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  line-height: 50px;
+}
