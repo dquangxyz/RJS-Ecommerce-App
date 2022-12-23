@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { popupActions } from '../../../store/index'
 import ProductDemo from './ProductDemo'
 import Popup from './Popup'
 import './ProductList.css'

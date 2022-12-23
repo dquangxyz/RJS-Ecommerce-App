@@ -1,6 +1,14 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { userArr, saveLocalStorage } from '../store/local-storage'
+
+// local storage
+const saveLocalStorage = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+const getFromStorage = (key) => {
+    return JSON.parse(localStorage.getItem(key));
+}
+const userArr = getFromStorage("userArr") ? getFromStorage("userArr") : [];
 
 
 class User {

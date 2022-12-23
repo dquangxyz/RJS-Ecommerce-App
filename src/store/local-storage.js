@@ -8,3 +8,5 @@ export const getFromStorage = (key) => {
 export const userArr = getFromStorage("userArr") ? getFromStorage("userArr") : [];
 
 export const currentSession = getFromStorage("currentSession") ? getFromStorage("currentSession") : {name: "", email: "", password: "", phone: ""};
+
+export const currentCart = getFromStorage("currentCart") ? getFromStorage("currentCart") : { userId: "", listCart: []}

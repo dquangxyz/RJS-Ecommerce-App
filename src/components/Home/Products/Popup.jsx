@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { popupActions } from '../../../store/index'
+import { popupActions } from '../../../store/popup'
 
 import './Popup.css'
 const Popup = () => {

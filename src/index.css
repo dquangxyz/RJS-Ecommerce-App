@@ -42,6 +42,17 @@ code {
 .related-products {
   display: flex;
 }
+.item-existed {
+  background-color: white;
+  color: black;
+  width: 140px;
+  display: inline-block;
+  position: relative;
+  font-size: 0.7rem;
+  height: 30px;
+  vertical-align: middle;
+  border-radius: 5px;
+}
 
 /* REGISTER PAGE */
 .signup-container {

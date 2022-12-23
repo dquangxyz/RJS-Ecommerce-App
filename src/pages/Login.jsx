@@ -2,9 +2,16 @@ import React, { useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
-import { authActions } from '../store/index'
-import { userArr, saveLocalStorage } from '../store/local-storage'
+import { authActions } from '../store/auth'
 import ImageBanner from '../assets/banner1.jpg'
+
+// local storage
+const saveLocalStorage = (key, value) => {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+const getFromStorage = (key) => {
+    return JSON.parse(localStorage.getItem(key));
+}
 
 
 
@@ -18,6 +25,7 @@ const Login = () => {
     const currentUser = useSelector(state => state.auth.currentUser)
 
     const handlerClickSignin = () => {
+        const userArr = getFromStorage("userArr") ? getFromStorage("userArr") : [];
         const result = userArr.find(item => item.email === emailRef.current.value)
         if (result !== undefined){
             if (result.password === passwordRef.current.value){

@@ -1,7 +1,9 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { authActions } from '../../store/index'
+import { authActions } from '../../store/auth'
+
+import './Navbar.css'
 
 const Navbar = () => {
     const dispatch = useDispatch()
@@ -51,7 +53,7 @@ const Navbar = () => {
                         {status ? 
                             <Fragment>
                                 <span>Welcome {currentUser.name}!</span>
-                                <span onClick={handlerLogout}>Logout</span>
+                                <span><button onClick={handlerLogout} className='btn-logout'>Logout</button></span>
                             </Fragment>
                             : 
                             <Link className='nav-link' to='/login'>Login</Link>

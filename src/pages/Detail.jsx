@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
-
+import React, { useEffect, useState, Fragment } from 'react'
+import { useParams, Link } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { cartActions } from '../store/cart'
 
 const Detail = () => {
+    // local state
     const { id } = useParams()
     const [detailedProduct, setDetailedProduct] = useState({})
     const [relatedProducts, setRelatedProducts] = useState([])
     const [qty, setQty] = useState(1)
+
+    // global state
+    const currentUser = useSelector(state => state.auth.currentUser)
+    const currentCart = useSelector(state => state.cart.listCart)
+    const dispatch = useDispatch()
 
     useEffect(()=>{
         const fetchData = async () =>  {
@@ -24,6 +31,13 @@ const Detail = () => {
         fetchData()
     },[id, detailedProduct.category])
 
+    // scroll to top on page load
+    useEffect(() => {
+        window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    }, [id])
+
+    
+
     // handler functions
     const handlerDecreaseQty = () => {
         if (qty > 0) {
@@ -32,6 +46,18 @@ const Detail = () => {
     }
     const handlerIncreaseQty = () => {
         setQty(qty+1)
+    }
+    const handlerAddToCart = () => {
+        const currentItem = {
+            userId: currentUser.email,
+            item: {
+                id: id,
+                name: detailedProduct.name,
+                price: detailedProduct.price,
+                qty: qty
+            }
+        }
+        dispatch(cartActions.addCart(currentItem))
     }
 
 
@@ -64,7 +90,17 @@ const Detail = () => {
                                     <button className='btn-increase' onClick={handlerIncreaseQty}>&#x25B8;</button>
                                 </span>
                                 <span>
-                                    <button className='btn btn-dark btn-sm btn-block text-white'>Add to cart</button>
+                                    { currentCart.some(item => item.id === id) ? 
+                                    <Fragment>
+                                        <div className='item-existed'>&#10004; Item has already been added to the cart</div>                                        <button onClick={()=>console.log("updated")} className='btn btn-dark btn-sm btn-block text-white'>
+                                            Update quantity
+                                        </button>
+                                    </Fragment>
+                                    :
+                                    <button onClick={handlerAddToCart} className='btn btn-dark btn-sm btn-block text-white'>
+                                        Add to cart
+                                    </button>
+                                    }
                                 </span>
                             </div>
                         </div>     
@@ -81,7 +117,8 @@ const Detail = () => {
                     {relatedProducts.map(item => (
                         <div>
                             <img src={item.img1} alt='' className='medium-image'/>
-                            <a href={`/detail/${item._id.$oid}`}><h6>{item.name}</h6></a>
+                            {/* <a href={`/detail/${item._id.$oid}`}><h6>{item.name}</h6></a> */}
+                            <Link to={`/detail/${item._id.$oid}`}><h6>{item.name}</h6></Link>
                             <div>{(+item.price).toLocaleString('vi')} VND</div> 
                         </div>
                     ))}

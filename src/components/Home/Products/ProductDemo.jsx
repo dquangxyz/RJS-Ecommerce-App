@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { popupActions } from '../../../store/index'
+import { popupActions } from '../../../store/popup'
 
 import './ProductDemo.css'
 
