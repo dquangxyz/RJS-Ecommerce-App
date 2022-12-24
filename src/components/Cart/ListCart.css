@@ -1,0 +1,47 @@
+.cart-main {
+    width: 100%;
+}
+table {
+    border-collapse:collapse;
+    text-align: left;
+    width: 90%;
+    margin: auto
+}
+table tr {
+    border-color:black;
+	border-style:solid;
+	border-width: thin;
+}
+table tr td {
+    padding-top: 10px;
+    padding-bottom: 10px
+}
+.cart-item-name {
+    font-size: 1.5 rem;
+}
+.cart-item-price {
+    font-weight: normal;
+    font-size: 1.5 rem;
+}
+.cart-item-quantity {
+    display: flex;
+    width: min-content;
+    border: 1px solid rgb(116, 116, 116);
+}
+.cart-item-quantity div {
+    margin: auto 12px
+}
+.cart-item-quantity button {
+    border-radius: 0;
+    border: 0px
+}
+.cart-item-quantity button:hover {
+    cursor: pointer;
+}
+.cart-item-total-cost {
+    font-weight: normal;
+}
+.cart-summary {
+    font-size: 1.3rem;
+    font-weight: bold;
+}

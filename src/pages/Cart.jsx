@@ -28,7 +28,7 @@ const Cart = () => {
             <h2 className='h5 text-uppercase mb-4'>Shopping cart</h2>
             <div className='row'>
                 <div className='col-lg-8 mb-4 mb-lg-0'>
-                    <ListCart listCart={cart} />
+                    <ListCart onCalculate={(data)=>setTotal(data)} />
 
                     <div className='bg-light px-4 py-3'>
                         <div className='row align-items-center text-center'>

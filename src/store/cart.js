@@ -23,7 +23,6 @@ const cartSlice = createSlice({
             const i = state.listCart.findIndex(item => item.id === action.payload.id)
             state.listCart[i].qty = action.payload.qty
             saveLocalStorage('currentCart', state)
-            alert("Updated in cart")
         },
         deleteCart(state){
             //
