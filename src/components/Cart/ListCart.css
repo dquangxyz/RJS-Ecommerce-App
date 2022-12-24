@@ -45,3 +45,7 @@ table tr td {
     font-size: 1.3rem;
     font-weight: bold;
 }
+.btn-delete {
+    border: none;
+    background-color: white;
+}

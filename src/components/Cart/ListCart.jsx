@@ -21,6 +21,9 @@ const ListCart = (props) => {
   const handlerIncrease = (id, qty) => {
     dispatch(cartActions.updateCart({ id, qty: qty +1 }))
   }
+  const handlerDeleteCart = (id) => {
+    dispatch(cartActions.deleteCart({id}))
+  }
 
   let totalValue = 0
 
@@ -51,7 +54,7 @@ const ListCart = (props) => {
                 </div>
               </td>
               <td className='cart-item-total-cost'>{formatCurrency(item.price * item.qty)} VND</td>
-              <td><i class="fas fa-trash-alt"></i></td>
+              <td><button onClick={() => handlerDeleteCart(item.id)} className='btn-delete'><i class="fas fa-trash-alt"></i></button></td>
             </tr>
           )    
         })}

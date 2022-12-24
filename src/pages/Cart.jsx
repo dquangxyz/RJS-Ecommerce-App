@@ -4,8 +4,7 @@ import ListCart from '../components/Cart/ListCart'
 
 const Cart = () => {
     const [total, setTotal] = useState()
-    const [cart, setCart] = useState([])
-
+    
   return (
     <div className='container'>
         <section className='py-5 bg-light'>
