@@ -59,6 +59,9 @@ const Detail = () => {
         }
         dispatch(cartActions.addCart(currentItem))
     }
+    const handlerUpdateCart = () => {
+        dispatch(cartActions.updateCart({ id, qty }))
+    }
 
 
     return (
@@ -92,7 +95,8 @@ const Detail = () => {
                                 <span>
                                     { currentCart.some(item => item.id === id) ? 
                                     <Fragment>
-                                        <div className='item-existed'>&#10004; Item has already been added to the cart</div>                                        <button onClick={()=>console.log("updated")} className='btn btn-dark btn-sm btn-block text-white'>
+                                        <div className='item-existed'>&#10004; Item has already been added to the cart</div>
+                                        <button onClick={handlerUpdateCart} className='btn btn-dark btn-sm btn-block text-white'>
                                             Update quantity
                                         </button>
                                     </Fragment>
@@ -117,7 +121,6 @@ const Detail = () => {
                     {relatedProducts.map(item => (
                         <div>
                             <img src={item.img1} alt='' className='medium-image'/>
-                            {/* <a href={`/detail/${item._id.$oid}`}><h6>{item.name}</h6></a> */}
                             <Link to={`/detail/${item._id.$oid}`}><h6>{item.name}</h6></Link>
                             <div>{(+item.price).toLocaleString('vi')} VND</div> 
                         </div>

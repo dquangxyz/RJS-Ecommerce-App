@@ -16,11 +16,14 @@ const cartSlice = createSlice({
     reducers: {
         addCart(state, action){
             state.userId = action.payload.userId
-            state.listCart.push(action.payload.item)          
+            state.listCart.push(action.payload.item)
             saveLocalStorage('currentCart', state)
         },
         updateCart(state, action){
-            //
+            const i = state.listCart.findIndex(item => item.id === action.payload.id)
+            state.listCart[i].qty = action.payload.qty
+            saveLocalStorage('currentCart', state)
+            alert("Updated in cart")
         },
         deleteCart(state){
             //
