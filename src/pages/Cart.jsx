@@ -1,28 +1,19 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ListCart from '../components/Cart/ListCart'
+import Section from '../components/Layout/Section'
 
 const Cart = () => {
+    // local state
     const [total, setTotal] = useState()
-    
+
+    const navigate = useNavigate()
+
+
+
   return (
     <div className='container'>
-        <section className='py-5 bg-light'>
-            <div className='container'>
-                <div className='row px-4 px-lg-5 py-lg-4 align-items-center'>
-                    <div className='col-lg-6'>
-                        <h1 className='h2 text-uppercase mb-0'>Cart</h1>
-                    </div>
-                    <div className='col-lg-6 text-lg-right'>
-                        <nav aria-label='breadcrumb'>
-                            <ol className='breadcrumb justify-content-lg-end mb-0 px-0'>
-                                <li className='breadcrumb-item active' aria-current='page'>Cart</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </section>
+        <Section title="Cart" />
         <section className='py-5'>
             <h2 className='h5 text-uppercase mb-4'>Shopping cart</h2>
             <div className='row'>
@@ -37,7 +28,7 @@ const Cart = () => {
                                 </Link>
                             </div>
                             <div className='col-md-6 text-md-right'>
-                                <span className='btn btn-outline-dark btn-sm'>Proceed to checkout</span>
+                                <span onClick={() => navigate('/checkout')} className='btn btn-outline-dark btn-sm'>Proceed to checkout</span>
                             </div>
                         </div>
                     </div>

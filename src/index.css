@@ -80,3 +80,27 @@ code {
   margin-top: 20px;
   line-height: 50px;
 }
+
+/* CHECKOUT PAGE */
+.checkout-container {
+  width: 60%;
+  margin: 20px auto;
+}
+.checkout-summary {
+  border: none;
+  border-collapse: collapse;
+  width: 100%;
+}
+.checkout-summary tr, .checkout-summary td {
+  border: none;
+}
+.checkout-item {
+  border-bottom: 1px solid black !important
+}
+.checkout-item-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.checkout-item-price {
+  font-size: 0.7rem;
+}

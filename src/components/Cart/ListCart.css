@@ -16,6 +16,9 @@ table tr td {
     padding-top: 10px;
     padding-bottom: 10px
 }
+.cart-item-img {
+    width: 100%
+}
 .cart-item-name {
     font-size: 1.5 rem;
 }

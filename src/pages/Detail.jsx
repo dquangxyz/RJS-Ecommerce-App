@@ -54,13 +54,11 @@ const Detail = () => {
                 id: id,
                 name: detailedProduct.name,
                 price: detailedProduct.price,
-                qty: qty
+                qty: qty,
+                img: detailedProduct.img1
             }
         }
         dispatch(cartActions.addCart(currentItem))
-    }
-    const handlerUpdateCart = () => {
-        dispatch(cartActions.updateCart({ id, qty }))
     }
 
 
@@ -96,9 +94,9 @@ const Detail = () => {
                                     { currentCart.some(item => item.id === id) ? 
                                     <Fragment>
                                         <div className='item-existed'>&#10004; Item has already been added to the cart</div>
-                                        <button onClick={handlerUpdateCart} className='btn btn-dark btn-sm btn-block text-white'>
-                                            Update quantity
-                                        </button>
+                                        <Link to={'/cart'} className='btn btn-dark btn-sm btn-block text-white'>
+                                            View Cart
+                                        </Link>
                                     </Fragment>
                                     :
                                     <button onClick={handlerAddToCart} className='btn btn-dark btn-sm btn-block text-white'>

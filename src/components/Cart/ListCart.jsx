@@ -43,7 +43,7 @@ const ListCart = (props) => {
           totalValue += item.price * item.qty
           return (
             <tr>
-              <td>(image)</td>
+              <td><img src={item.img} alt='' className='cart-item-img' /></td>
               <td className='cart-item-name'>{item.name}</td>
               <td className='cart-item-price'>{formatCurrency(item.price)} VND</td>
               <td>
