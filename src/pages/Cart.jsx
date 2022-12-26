@@ -48,6 +48,8 @@ const Cart = () => {
                                     <span>{total} VND</span>
                                 </li>
                             </ul>
+                            <input className='cart-coupon-input' type='text' placeholder='Enter your coupon'/>
+                            <button className='cart-coupon-button btn btn-dark text-white'><i class="fa fa-gift" aria-hidden="true"></i> Apply coupon</button>
                         </div>
                     </div>
                 </div>

@@ -81,6 +81,18 @@ code {
   line-height: 50px;
 }
 
+/* CART PAGE */
+.cart-coupon-input {
+  width: 100%;
+  line-height: 35px;
+  border: 0.5px solid grey;
+}
+.cart-coupon-button {
+  width: 100%;
+  border: none;
+  border-radius: 0px !important;
+}
+
 /* CHECKOUT PAGE */
 .checkout-container {
   width: 60%;
