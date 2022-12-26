@@ -21,8 +21,6 @@ const Login = () => {
     const passwordRef = useRef()
 
     const dispatch = useDispatch()
-    const status = useSelector(state => state.auth.isLoggedIn)
-    const currentUser = useSelector(state => state.auth.currentUser)
 
     const handlerClickSignin = () => {
         const userArr = getFromStorage("userArr") ? getFromStorage("userArr") : [];

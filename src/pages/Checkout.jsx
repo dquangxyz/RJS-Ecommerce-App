@@ -1,7 +1,8 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
+import React, { useRef } from 'react'
 import Section from '../components/Layout/Section'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { cartActions } from '../store/cart';
 
 const formatCurrency = (num) => {
     return (+num).toLocaleString('vi')
@@ -10,9 +11,26 @@ const formatCurrency = (num) => {
 const Checkout = () => {
     // global state
     const cart = useSelector(state => state.cart.listCart)
+    const dispatch = useDispatch()
 
     // local state
-    let total = 0
+    let total = 0 // to be displayed as total amount of the cart
+    const nameRef = useRef()
+    const emailRef = useRef()
+    const phoneRef = useRef()
+    const addressRef = useRef()
+
+    // handler functions
+    const handlerPlaceOrder = (e) => {
+        console.log(nameRef.current.value)
+        if ( nameRef.current.value === "" || emailRef.current.value === "" || phoneRef.current.value === "" || addressRef.current.value === ""){
+            alert("Please fill in the detail")
+            e.preventDefault()
+        } else {
+            alert("Placed order successfully")
+            dispatch(cartActions.clearCart())
+        }
+    }
     
   return (
     <div className='checkout-container'>
@@ -25,6 +43,7 @@ const Checkout = () => {
                         <div className='col-lg-12 form-group'>
                             <label className='text-small text-uppercase' htmlFor='Fullname'>Full Name:</label>
                             <input
+                                ref={nameRef}
                                 className='form-control form-control-lg'
                                 type='text'
                                 placeholder='Enter Your Full Name Here!'
@@ -33,6 +52,7 @@ const Checkout = () => {
                         <div className='col-lg-12 form-group'>
                             <label className='text-small text-uppercase' htmlFor='Email'>Email:{' '}</label>
                             <input
+                                ref={emailRef}
                                 className='form-control form-control-lg'
                                 type='text'
                                 placeholder='Enter Your Email Here!'
@@ -41,6 +61,7 @@ const Checkout = () => {
                         <div className='col-lg-12 form-group'>
                             <label className='text-small text-uppercase' htmlFor='Phone'>Phone Number:{' '}</label>
                             <input
+                                ref={phoneRef}
                                 className='form-control form-control-lg'
                                 type='text'
                                 placeholder='Enter Your Phone Number Here!'
@@ -49,13 +70,14 @@ const Checkout = () => {
                         <div className='col-lg-12 form-group'>
                             <label className='text-small text-uppercase' htmlFor='Address'>Address:{' '}</label>
                             <input
+                                ref={addressRef}
                                 className='form-control form-control-lg'
                                 type='text'
                                 placeholder='Enter Your Address Here!'
                             />
                         </div>
                         <div className='col-lg-12 form-group'>
-                            <a className='btn btn-dark' style={{ color: 'white' }} type='submit'>Place order</a>
+                            <button className='btn btn-dark' style={{ color: 'white' }} onClick={handlerPlaceOrder}>Place order</button>
                         </div>
                     </div>
                 </form>

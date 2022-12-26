@@ -28,6 +28,10 @@ const cartSlice = createSlice({
             const i = state.listCart.findIndex(item => item.id === action.payload.id)
             state.listCart.splice(i, 1)
             saveLocalStorage('currentCart', state)
+        },
+        clearCart(state){
+            localStorage.removeItem('currentCart')
+            state = []
         }
     }
 })
