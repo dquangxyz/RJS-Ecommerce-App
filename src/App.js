@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route} from 'react-router-dom'
+
 import Navbar from './components/Layout/Navbar'
 import Footer from './components/Layout/Footer'
+import Livechat from './components/Livechat/Livechat'
+
 import Home from './pages/Home'
 import Shop from './pages/Shop'
 import Detail from './pages/Detail'
@@ -24,6 +27,7 @@ function App() {
         <Route path='/checkout' element={<Checkout />} />
 
       </Routes>
+      <Livechat />
       <Footer />
     </BrowserRouter>
   );

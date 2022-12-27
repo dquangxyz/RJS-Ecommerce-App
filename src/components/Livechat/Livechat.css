@@ -1,0 +1,96 @@
+.livechat-button {
+    cursor: pointer;
+    color: rgb(58, 160, 207);
+    font-size: xx-large;
+    position: fixed;
+    bottom: 10%;
+    right: 15%;
+}
+.livechat-window {
+    background-color: rgb(255, 255, 255);
+    position: fixed;
+    top: 20%;
+    right: 10%;
+    width: 400px;
+    height: 450px;
+    padding: 20px;
+    z-index: 10;
+    border-radius: 1rem;
+	box-shadow: 1px 3px 15px #8b8b8b;
+}
+.livechat-window-header {
+    margin-top: 10px;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 0.5px solid gray;
+}
+.livechat-head {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-left: 20px;
+}
+.livechat-chatapp {
+    position: absolute;
+    right: 10px;
+    font-size: 0.9rem;
+    background-color: rgb(230, 230, 230);   
+}
+.livechat-window-body {
+    margin: 40px 10px 10px;
+    width: 75%;
+}
+.livechat-from-user {
+    background-color: rgb(58, 160, 207);
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+    margin-left: auto;
+    padding: 5px;
+}
+.livechat-from-admin {
+    background-color: rgb(230, 230, 230);
+    display: flex;
+    justify-content: flex-start;
+    width: fit-content;
+    margin-right: auto;
+    padding: 5px;
+    font-style: italic;
+}
+.livechat-message-line {
+    display: flex;
+    margin: auto;
+}
+.livechat-message-line > i {
+    font-size: 35px;
+    margin-right: 5px;
+}
+.livechat-window-footer {
+    display: flex;
+    background-color: rgb(230, 230, 230);
+    line-height: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 10px;
+    width: 100%;
+    border-top: 0.5px solid gray;
+}
+.livechat-ava {
+    width: 30px;
+}
+.livechat-input > input {
+    border: none;
+    background-color: rgb(230, 230, 230);
+}
+.livechat-icon {
+    color: grey;
+    margin: auto 5px;
+    cursor: pointer;
+}
+.livechat-icon.send {
+    color: rgb(58, 160, 207);
+}
