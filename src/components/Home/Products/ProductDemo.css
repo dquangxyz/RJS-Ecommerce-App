@@ -1,3 +1,7 @@
 .product-image:hover {
     cursor: pointer;
 }
+.product-demo-name {
+    color: black;
+    text-decoration: none;
+}

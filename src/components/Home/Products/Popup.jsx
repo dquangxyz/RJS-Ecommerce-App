@@ -19,6 +19,7 @@ const Popup = () => {
                         <div className='product-name'>{item.name}</div>
                         <div className='product-price'>{item.price}</div>
                         <div className='product-description'>{item.description}</div>
+                        <button className='btn-view-detail'>View Detail</button>
                     </div>
                 </div>
             </div>

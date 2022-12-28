@@ -58,7 +58,7 @@ const Services = () => {
                                     <div className='input-group-append'>
                                         <button
                                             className='btn btn-dark btn-block'
-                                            id='button-addon2'
+                                            id='btn-subscribe'
                                             type='submit'>
                                             Subscribe
                                         </button>

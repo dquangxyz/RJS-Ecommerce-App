@@ -1,11 +1,12 @@
-import { Fragment } from 'react'
 import ProductList from '../components/Shop/ProductList'
+import Section from '../components/Layout/Section'
 
 const Shop = () => {
   return (
-    <Fragment>
+    <div className='container'>
+      <Section title="Shop" />
       <ProductList />
-    </Fragment>
+    </div>
   )
 }
 

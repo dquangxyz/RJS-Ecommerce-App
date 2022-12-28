@@ -4,7 +4,8 @@
     font-size: xx-large;
     position: fixed;
     bottom: 10%;
-    right: 15%;
+    right: 14%;
+    z-index: 11;
 }
 .livechat-window {
     background-color: rgb(255, 255, 255);
