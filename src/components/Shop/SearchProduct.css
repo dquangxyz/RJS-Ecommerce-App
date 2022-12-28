@@ -1,0 +1,8 @@
+.search-product-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+.search-product-container input {
+    height: 25px;
+}
