@@ -32,6 +32,11 @@ const ProductList = () => {
 			setFilteredProducts(results)
 		}
 	}
+	// sort low-to-high or high-to-low
+	const sortHandler = (data) => {
+		console.log(data)
+		setFilteredProducts(data)
+	}
 
     return (
         <Fragment>
@@ -74,7 +79,7 @@ const ProductList = () => {
 				<div className='row col-9'>
 					<SearchProduct onSearch={searchHandler}/>
 
-					<SortProduct />
+					<SortProduct products={filteredProducts} onSort={sortHandler}/>
 
 					{filteredProducts.map((item) => (
 						<div className='col-lg-4 col-sm-6'>
