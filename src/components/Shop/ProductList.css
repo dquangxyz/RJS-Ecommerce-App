@@ -1,3 +1,23 @@
 .product-image:hover {
     cursor: pointer;
 }
+.page-number-ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+}
+.page-number-li.current-page {
+    border: 0.5px solid lightgrey;
+    background-color: rgb(43, 43, 43);
+    color: white;
+    display: flex;
+    justify-content: center;
+    width: 25px;
+}
+.page-number-li > button {
+    border: 0.5px solid lightgrey;
+}
+.page-number-div {
+    display: flex;
+    justify-content: flex-end;
+}

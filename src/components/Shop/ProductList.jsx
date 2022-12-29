@@ -92,6 +92,17 @@ const ProductList = () => {
 							<p className='small text-muted'>{(+item.price).toLocaleString('vi')} VND</p>
 						</div>
 					))}
+
+					<div className='page-number-wrapper'>
+						<ul className='page-number-ul'>
+							<li className='page-number-li'><button>«</button></li>
+							<li className='page-number-li current-page'>1</li>
+							<li className='page-number-li'><button>»</button></li>
+						</ul>
+						<div className='page-number-div'>
+							<p>Showing 1–9 of 9 results</p>
+						</div>
+					</div>
 				</div>
 			</div>
         </Fragment>
