@@ -77,33 +77,36 @@ const Detail = () => {
                 </div>
 
                 <div className='main-details'>
-                    <div><h1>{detailedProduct.name}</h1></div>
-                    <div>{(+detailedProduct.price).toLocaleString('vi')} VND</div>
-                    <div>{detailedProduct.short_desc}</div>
-                    <div>CATEGORY: {detailedProduct.category}</div>
+                    <div className='main-details-name'><h1>{detailedProduct.name}</h1></div>
+                    <div className='main-details-price'>{(+detailedProduct.price).toLocaleString('vi')} VND</div>
+                    <div className='main-details-short-desc'>{detailedProduct.short_desc}</div>
+                    <div className='main-details-category'>
+                        <span>CATEGORY: </span>
+                        <span>{detailedProduct.category}</span>
+                    </div>
                     <div className=''>
-                        <div className=''>
+                        <div className='qty-wrapper'>
+                            <div className='qty-box'>
+                                <span className='qty-box-1'>QUANTITY</span>   
+                                <span>
+                                    <button id='btn-decrease' onClick={handlerDecreaseQty}>&#x25C2;</button>
+                                    <input  id='input-qty' type='text' value={qty}/>
+                                    <button id='btn-increase' onClick={handlerIncreaseQty}>&#x25B8;</button>
+                                </span>
+                            </div>
                             <div>
-                                <span>Quantity</span>   
-                                <span>
-                                    <button className='btn-decrease' onClick={handlerDecreaseQty}>&#x25C2;</button>
-                                    <input  type='text' value={qty}/>
-                                    <button className='btn-increase' onClick={handlerIncreaseQty}>&#x25B8;</button>
-                                </span>
-                                <span>
-                                    { currentCart.some(item => item.id === id) ? 
-                                    <Fragment>
-                                        <div className='item-existed'>&#10004; Item has already been added to the cart</div>
-                                        <Link to={'/cart'} className='btn btn-dark btn-sm btn-block text-white'>
-                                            View Cart
-                                        </Link>
-                                    </Fragment>
-                                    :
-                                    <button onClick={handlerAddToCart} className='btn btn-dark btn-sm btn-block text-white'>
-                                        Add to cart
-                                    </button>
-                                    }
-                                </span>
+                                { currentCart.some(item => item.id === id) ? 
+                                <Fragment>
+                                    <div className='item-existed'>&#10004; Item has already been added to the cart</div>
+                                    <Link to={'/cart'} className='btn btn-dark btn-sm btn-block text-white rounded-0'>
+                                        View Cart
+                                    </Link>
+                                </Fragment>
+                                :
+                                <button onClick={handlerAddToCart} className='btn btn-dark btn-sm btn-block text-white rounded-0'>
+                                    Add to cart
+                                </button>
+                                }
                             </div>
                         </div>     
                     </div>
@@ -111,16 +114,16 @@ const Detail = () => {
             </div>
 
             <div className='detailed-product-wrapper2'>
-                <button className='btn btn-dark btn-lg btn-block text-white'>Description</button>
-                <div><h4>PRODUCT DESCRIPTION</h4></div>
-                <div className='product-long-desc'>{detailedProduct.long_desc}</div>
-                <div><h4>RELATED PRODUCTS</h4></div>
+                <button className='btn btn-dark btn-md btn-block text-white rounded-0'>Description</button>
+                <div style={{'margin': '20px auto'}}><h4>PRODUCT DESCRIPTION</h4></div>
+                <div className='main-details-long-desc'>{detailedProduct.long_desc}</div>
+                <div style={{'margin': '150px auto 10px'}}><h4>RELATED PRODUCTS</h4></div>
                 <div className='related-products'>
                     {relatedProducts.map(item => (
-                        <div>
+                        <div className='related-product'>
                             <img src={item.img1} alt='' className='medium-image'/>
-                            <Link to={`/detail/${item._id.$oid}`}><h6>{item.name}</h6></Link>
-                            <div>{(+item.price).toLocaleString('vi')} VND</div> 
+                            <Link to={`/detail/${item._id.$oid}`} className='product-demo-name'><h6>{item.name}</h6></Link>
+                            <div className='small text-muted'>{(+item.price).toLocaleString('vi')} VND</div> 
                         </div>
                     ))}
                 </div>

@@ -31,16 +31,20 @@ code {
 }
 .large-image {
   width: 500px;
-  height: auto
+  height: auto;
+  margin-right: 50px;
 }
-.btn-increase, .btn-decrease {
+#btn-increase, #btn-decrease {
   cursor: pointer;
-}
-.product-long-desc {
-  width: 50%;
+  border: none;
+  background-color: white;
+  color: black;
 }
 .related-products {
   display: flex;
+}
+.related-product {
+  margin-right: 20px;
 }
 .item-existed {
   background-color: white;
@@ -53,6 +57,60 @@ code {
   vertical-align: middle;
   border-radius: 5px;
 }
+.main-details .qty-wrapper {
+  display: flex;
+  height: 32px;
+}
+.main-details .qty-box {
+  border: 0.5px solid lightgrey;
+  width: fit-content;
+  height: 100%;
+}
+.main-details .qty-box-1 {
+  color: grey;
+  font-style: italic;
+  font-size: 0.8rem;
+  padding-right: 50px;
+  padding-left: 10px;
+}
+#input-qty {
+  border: none;
+  width: 30px;
+  text-align: center;
+}
+.main-details-name {
+  font-size: 1.3rem;
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.main-details-price {
+  font-size: 1.1rem;
+  font-style: italic;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: grey;
+}
+.main-details-short-desc {
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 20px;
+  color: grey;
+}
+.main-details-category {
+  margin-bottom: 10px;
+  font-style: italic;
+  font-size: 0.9rem;
+  color: grey;
+}
+.main-details-category span:first-child {
+  font-weight: 700;
+}
+.main-details-long-desc {
+  width: 50%;
+  margin-bottom: 50px;
+}
+
 
 /* REGISTER PAGE */
 .signup-container {
