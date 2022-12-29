@@ -1,3 +1,22 @@
+.navbar-container {
+    width: 80%;
+    margin: 0 auto 10px;
+    font-style: italic;
+}
+#navbar {
+    display: flex;
+    justify-content: space-around;
+}
+.nav-item span {
+    height: 100%;
+    line-height: 35px;
+    color: rgba(0, 0, 0, 0.55)
+}
+.nav-item.nav-item-home > a {
+    color: rgb(250, 222, 64);
+    font-weight: 500;
+    font-style: italic;
+}
 .btn-logout {
     border: none;
     background-color: white;

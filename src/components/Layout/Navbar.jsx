@@ -15,21 +15,11 @@ const Navbar = () => {
     }
  
   return (
-    <div className='container px-0 px-lg-3'>
+    <div className='navbar-container'>
         <nav className='navbar navbar-expand-lg navbar-light py-3 px-lg-0'>
-            <button
-                className='navbar-toggler'
-                type='button'
-                data-toggle='collapse'
-                data-target='#navbarNavAltMarkup'
-                aria-controls='navbarNavAltMarkup'
-                aria-expanded='false'
-                aria-label='Toggle navigation'>
-                <span className='navbar-toggler-icon'></span>
-            </button>
-            <div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
+            <div id='navbar' className='collapse navbar-collapse'>
                 <ul className='navbar-nav mr-auto'>
-                    <li className='nav-item' onClick={() => {}}>
+                    <li className='nav-item nav-item-home' onClick={() => {}}>
                         <Link className='nav-link' to='/'>Home</Link>
                     </li>
                     <li className='nav-item' onClick={() => {}}>
@@ -45,16 +35,14 @@ const Navbar = () => {
 
                 <ul className='navbar-nav ml-auto'>
                     <li className='nav-item'>
-                        <Link className='nav-link' to='/cart'>
-                            Cart
-                        </Link>
+                        <Link className='nav-link' to='/cart'><i class="fa fa-shopping-cart"></i> Cart</Link>
                     </li>
                     <li className='nav-item'>
                         {status ? 
-                            <Fragment>
-                                <span>Welcome {currentUser.name}!</span>
-                                <span><button onClick={handlerLogout} className='btn-logout'>Logout</button></span>
-                            </Fragment>
+                            <div>
+                                <span><i class="fa fa-user"></i> {currentUser.name}!</span>
+                                <span><button onClick={handlerLogout} className='btn-logout'>(Logout)</button></span>
+                            </div>
                             : 
                             <Link className='nav-link' to='/login'>Login</Link>
                         }                
