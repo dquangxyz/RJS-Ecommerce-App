@@ -35,11 +35,12 @@ const Checkout = () => {
   return (
     <div className='checkout-container'>
         <Section title="Checkout" />
+        
         <h2 className='h5 text-uppercase mb-4'>Billing details</h2>
         <div className='row'>
-            <div className='col-lg-8'>
+            <div className='col-lg-7'>
                 <form>
-                    <div className='row'>
+                    <div className='checkout-form-wrapper row'>
                         <div className='col-lg-12 form-group'>
                             <label className='text-small text-uppercase' htmlFor='Fullname'>Full Name:</label>
                             <input
@@ -83,11 +84,11 @@ const Checkout = () => {
                 </form>
             </div>
 
-            <div className='col-lg-4'>
+            <div className='col-lg-5'>
                 <div className='card border-0 rounded-0 p-lg-4 bg-light'>
                     <div className='card-body'>
-                        <h5 className='text-uppercase mb-4'>Your order</h5>
-                        <table className='checkout-summary' cellspacing="0" cellpadding="0">
+                        <h5 className='text-uppercase'>Your order</h5>
+                        <table className='checkout-summary'>
                             {cart.map(item => {
                                 total += item.price * item.qty
                                 return (
@@ -97,7 +98,7 @@ const Checkout = () => {
                                     </tr>
                                 )
                             })}
-                            <tr>
+                            <tr className='checkout-summary-total'>
                                 <td>TOTAL</td>
                                 <td>{formatCurrency(total)} VND</td>
                             </tr>

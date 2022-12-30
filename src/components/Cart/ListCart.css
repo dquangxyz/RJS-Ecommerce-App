@@ -1,18 +1,17 @@
 .cart-main {
     width: 100%;
 }
-table {
+.cart-main table {
     border-collapse:collapse;
-    text-align: left;
-    width: 90%;
-    margin: auto
+    text-align: center;
+    width: 95%;
 }
-table tr {
-    border-color:black;
-	border-style:solid;
-	border-width: thin;
+.cart-main table tr:first-child {
+	font-style: italic;
+    font-size: 0.9rem;
+    background-color: rgb(249, 249, 250)
 }
-table tr td {
+.cart-main table tr td {
     padding-top: 10px;
     padding-bottom: 10px
 }
@@ -20,23 +19,27 @@ table tr td {
     width: 100%
 }
 .cart-item-name {
-    font-size: 1.5 rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-style: italic;
 }
 .cart-item-price {
     font-weight: normal;
-    font-size: 1.5 rem;
+    font-size: 1rem;
+    font-style: italic;
 }
 .cart-item-quantity {
     display: flex;
     width: min-content;
-    border: 1px solid rgb(116, 116, 116);
+    margin: auto;
 }
 .cart-item-quantity div {
     margin: auto 12px
 }
 .cart-item-quantity button {
     border-radius: 0;
-    border: 0px
+    border: none;
+    background-color: white;
 }
 .cart-item-quantity button:hover {
     cursor: pointer;

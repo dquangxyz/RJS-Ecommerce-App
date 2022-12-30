@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { authActions } from '../../store/auth'
@@ -40,7 +40,7 @@ const Navbar = () => {
                     <li className='nav-item'>
                         {status ? 
                             <div>
-                                <span><i class="fa fa-user"></i> {currentUser.name}!</span>
+                                <span><i class="fa fa-user"></i> {currentUser.name}</span>
                                 <span><button onClick={handlerLogout} className='btn-logout'>(Logout)</button></span>
                             </div>
                             : 

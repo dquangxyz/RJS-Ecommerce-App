@@ -38,7 +38,12 @@
     position: absolute;
     right: 10px;
     font-size: 0.9rem;
-    background-color: rgb(230, 230, 230);   
+    background-color: rgb(230, 230, 230); 
+    padding: 2px;
+}
+.livechat-chatapp:hover {
+    cursor: pointer;
+    opacity: 0.6;
 }
 .livechat-window-body {
     margin: 40px 10px 10px;

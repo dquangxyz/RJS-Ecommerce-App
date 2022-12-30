@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { authActions } from '../store/auth'
 import ImageBanner from '../assets/banner1.jpg'
 
@@ -41,8 +41,8 @@ const Login = () => {
     }
 
     return (
-        <div style={{ backgroundImage: `url(${ImageBanner})`,  backgroundPosition: 'center center'}}>
-            <div className='signup-container'>
+        <div className='signin-signup-container' style={{'backgroundImage': `url(${ImageBanner})`}}>
+            <div className='signin-signup-wrapper'>
                 <div><h2>Sign In</h2></div>
                 <form onSubmit={e => e.preventDefault()}>
                     <div><input ref={emailRef} placeholder='email'></input></div>
@@ -59,8 +59,8 @@ const Login = () => {
                 <div>
                     <span>Create an account?</span>
                     <span><Link to='/register'>Click</Link></span>
-                </div>        
-            </div>
+                </div>   
+            </div>     
         </div>
     )
 }

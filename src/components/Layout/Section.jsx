@@ -13,7 +13,7 @@ const Section = (props) => {
               <div className='col-lg-6 text-lg-right'>
                   <nav aria-label='breadcrumb'>
                       <ol className='breadcrumb justify-content-lg-end mb-0 px-0'>
-                          <li className='breadcrumb-item active' aria-current='page'>{props.title}</li>
+                          <li className='breadcrumb-item active' aria-current='page'>{props.title.toUpperCase()}</li>
                       </ol>
                   </nav>
               </div>

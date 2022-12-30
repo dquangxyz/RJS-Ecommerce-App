@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import ImageBanner from '../assets/banner1.jpg'
+
 
 // local storage
 const saveLocalStorage = (key, value) => {
@@ -43,21 +45,28 @@ const Register = () => {
 
     // validate function
     const validateData = () => {
-        if (enteredEmail.length < 2) {
-            alert("Invalid email");
-            return false;
+        if (enteredName === "" || enteredEmail === "" || enteredPassword === "" || enteredPhone === "") {
+            alert("Plese fill in all fields")
+            return false
         }
-        if (enteredPassword.length < 2) {
-            alert("Password has to be at least 8 characters");
-            return false;
+        if (!enteredEmail.includes('@')) {
+            alert("Invalid email format")
+            return false
+        } else if (enteredPassword.length < 4) {
+            alert("Password has to be at least 4 characters")
+            return false
+        } else if (/^\d+$/.test(enteredPhone) === false) {
+            alert("Phone number should only contains numbers")
+            return false
         }
+            
         for (let i = 0; i < userArr.length; i++) {
             if (enteredEmail === userArr[i].email) {
                 alert("This user account has existed");
-                return false;
+                return false
             }
         }
-        return true;
+        return true
     }
 
     //click handler when clciking the sign up button
@@ -68,8 +77,8 @@ const Register = () => {
             enteredPassword,
             enteredPhone
         );
-        const validate = validateData(user);
-        if (validate) {
+        const validateResult = validateData();
+        if (validateResult) {
             userArr.push(user);
             saveLocalStorage("userArr", userArr);
             alert("Register successfully");
@@ -82,18 +91,20 @@ const Register = () => {
         event.preventDefault();
     };
     return (
-        <div className='signup-container'>
-            <div><h2>Sign Up</h2></div>
-            <form onSubmit={submitHandler}>
-                <div><input placeholder='Full Name' onChange={nameInputHandler} value={enteredName}></input></div>
-                <div><input placeholder='Email' onChange={emailInputHandler} value={enteredEmail}></input></div>
-                <div><input placeholder='Password' type='password' onChange={passwordInputHandler} value={enteredPassword}></input></div>
-                <div><input placeholder='phone' onChange={phoneInputHandler} value={enteredPhone}></input></div>
-                <div><button onClick={btnHanler} className='btn-signup btn btn-dark btn-block text-white'>SIGN UP</button></div>
-            </form>
-            <div>
-                <span>Login?</span>
-                <span><Link to='/login'>Click</Link></span>
+        <div className='signin-signup-container' style={{'backgroundImage': `url(${ImageBanner})`}}>
+            <div className='signin-signup-wrapper'>
+                <div><h2>Sign Up</h2></div>
+                <form onSubmit={submitHandler}>
+                    <div><input placeholder='Full Name' onChange={nameInputHandler} value={enteredName}></input></div>
+                    <div><input placeholder='Email' onChange={emailInputHandler} value={enteredEmail}></input></div>
+                    <div><input placeholder='Password' type='password' onChange={passwordInputHandler} value={enteredPassword}></input></div>
+                    <div><input placeholder='Phone' onChange={phoneInputHandler} value={enteredPhone}></input></div>
+                    <div><button onClick={btnHanler} className='btn-signup btn btn-dark btn-block text-white'>SIGN UP</button></div>
+                </form>
+                <div>
+                    <span>Login?</span>
+                    <span><Link to='/login'>Click</Link></span>
+                </div>
             </div>        
         </div>
     )

@@ -48,9 +48,9 @@ const ListCart = (props) => {
               <td className='cart-item-price'>{formatCurrency(item.price)} VND</td>
               <td>
                 <div className='cart-item-quantity'>
-                  <button onClick={() => handlerDecrease(item.id, item.qty)}> &#60; </button>               
+                  <button onClick={() => handlerDecrease(item.id, item.qty)}>&#x25C2;</button>               
                   <div>{item.qty}</div>
-                  <button onClick={() => handlerIncrease(item.id, item.qty)}> &#62; </button>
+                  <button onClick={() => handlerIncrease(item.id, item.qty)}>&#x25B8;</button>
                 </div>
               </td>
               <td className='cart-item-total-cost'>{formatCurrency(item.price * item.qty)} VND</td>

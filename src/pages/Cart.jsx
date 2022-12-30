@@ -9,8 +9,6 @@ const Cart = () => {
 
     const navigate = useNavigate()
 
-
-
   return (
     <div className='container'>
         <Section title="Cart" />
@@ -20,15 +18,18 @@ const Cart = () => {
                 <div className='col-lg-8 mb-4 mb-lg-0'>
                     <ListCart onCalculate={(data)=>setTotal(data)} />
 
-                    <div className='bg-light px-4 py-3'>
+                    <div className='cart-actions bg-light px-4 py-3'>
                         <div className='row align-items-center text-center'>
                             <div className='col-md-6 mb-3 mb-md-0 text-md-left'>
                                 <Link to={`/shop`} className='btn btn-link p-0 text-dark btn-sm'>
-                                    Continue shopping
+                                    <i class="fa fa-arrow-left"></i> Continue shopping
                                 </Link>
                             </div>
                             <div className='col-md-6 text-md-right'>
-                                <span onClick={() => navigate('/checkout')} className='btn btn-outline-dark btn-sm'>Proceed to checkout</span>
+                                <span onClick={() => navigate('/checkout')} className='btn btn-outline-dark btn-sm'>
+                                    Proceed to checkout   
+                                    <i class="fa fa-arrow-right"></i>
+                                </span>
                             </div>
                         </div>
                     </div>

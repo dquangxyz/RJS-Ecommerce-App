@@ -25,6 +25,10 @@ code {
   height: 60px;
   width: auto;
 }
+.small-image:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
 .medium-image {
   width: 300px;
   height: auto
@@ -111,28 +115,38 @@ code {
   margin-bottom: 50px;
 }
 
-
-/* REGISTER PAGE */
-.signup-container {
-  width: 40%;
-  margin: 40px auto;
+/* LOGIN PAGE && REGISTER PAGE */
+.signin-signup-container {
+  background-position: center center;
+  width: 60%;
+  margin: 50px auto;
+  position: relative;
+  height: 650px;
+}
+.signin-signup-wrapper {
+  width: 50%;
   border: 1px solid black;
   padding-top: 50px;
   padding-bottom: 50px;
+  position: absolute;
+  margin: 50px 25%;
 }
-.signup-container div {
+.signin-signup-wrapper div:first-child {
+  font-style: italic;
+}
+.signin-signup-wrapper div {
   display: flex;
   justify-content: center;
 }
-.signup-container form {
+.signin-signup-wrapper form {
   margin-top: 50px;
 }
-.signup-container form input {
+.signin-signup-wrapper form input {
   width: 80%;
   margin: 0 auto;
   line-height: 50px;
 }
-.signup-container .btn-signup {
+.signin-signup-wrapper .btn-signup {
   width: 80%;
   margin-bottom: 30px;
   margin-top: 20px;
@@ -150,27 +164,54 @@ code {
   border: none;
   border-radius: 0px !important;
 }
+.cart-actions {
+  width: 95%;
+}
+.cart-actions i {
+  margin: auto 8px;
+}
 
 /* CHECKOUT PAGE */
 .checkout-container {
   width: 60%;
   margin: 20px auto;
 }
+.checkout-form-wrapper {
+  margin-bottom: 100px;
+}
+.checkout-form-wrapper div {
+  margin: 20px auto;
+}
 .checkout-summary {
   border: none;
   border-collapse: collapse;
   width: 100%;
+  font-style: italic;
 }
 .checkout-summary tr, .checkout-summary td {
   border: none;
 }
 .checkout-item {
-  border-bottom: 1px solid black !important
+  border-bottom: 1px solid black !important;
 }
 .checkout-item-name {
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 500;
 }
 .checkout-item-price {
   font-size: 0.7rem;
+  display: flex;
+  justify-content: end;
+}
+.checkout-summary-total {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+.checkout-summary-total td:last-child {
+  display: flex;
+  justify-content: end;
+}
+.card-body h5 {
+  margin-bottom: 20px;
+  font-style: italic;
 }

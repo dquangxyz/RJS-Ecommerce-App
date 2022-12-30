@@ -83,11 +83,11 @@ const ProductList = () => {
 
 					{filteredProducts.map((item) => (
 						<div className='col-lg-4 col-sm-6'>
-							<Link to={`/detail/${item._id.$oid}`}>
+							<Link to={`/detail/${item._id.$oid}`} style={{'textDecoration': 'none'}}>
 								<div className='position-relative mb-3'>
 									<img className='product-image img-fluid' src={item.img1} alt='' />
 								</div>
-								<h6>{item.name}</h6>
+								<h6 className='product-demo-name'>{item.name}</h6>
 							</Link>
 							<p className='small text-muted'>{(+item.price).toLocaleString('vi')} VND</p>
 						</div>
