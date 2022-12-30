@@ -9,6 +9,7 @@ const Detail = () => {
     const [detailedProduct, setDetailedProduct] = useState({})
     const [relatedProducts, setRelatedProducts] = useState([])
     const [qty, setQty] = useState(1)
+    const [selectedImg, setSelectedImg] = useState("")
 
     // global state
     const currentUser = useSelector(state => state.auth.currentUser)
@@ -23,6 +24,7 @@ const Detail = () => {
             // find the chosen object based on the id
             let result = data.find(objt => objt._id.$oid === id) 
             setDetailedProduct(result)
+            setSelectedImg(result.img1)
 
             // find related product based on similar category and different id
             let relatedResults = data.filter(objt => objt.category === detailedProduct.category && objt._id.$oid !== id)
@@ -36,7 +38,6 @@ const Detail = () => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
     }, [id])
 
-    
 
     // handler functions
     const handlerDecreaseQty = () => {
@@ -61,19 +62,18 @@ const Detail = () => {
         dispatch(cartActions.addCart(currentItem))
     }
 
-
     return (
         <div className='detailed-product-container'>
             <div className='detailed-product-wrapper1'>      
                 <div className='all-images'>
-                    <img src={detailedProduct.img1} alt='' className='small-image'/>
-                    <img src={detailedProduct.img2} alt='' className='small-image'/>
-                    <img src={detailedProduct.img3} alt='' className='small-image'/>
-                    <img src={detailedProduct.img4} alt='' className='small-image'/>
+                    <img src={detailedProduct.img1} alt='' onClick={() => setSelectedImg(detailedProduct.img1)} className='small-image'/>
+                    <img src={detailedProduct.img2} alt='' onClick={() => setSelectedImg(detailedProduct.img2)} className='small-image'/>
+                    <img src={detailedProduct.img3} alt='' onClick={() => setSelectedImg(detailedProduct.img3)} className='small-image'/>
+                    <img src={detailedProduct.img4} alt='' onClick={() => setSelectedImg(detailedProduct.img4)} className='small-image'/>
                 </div>
 
                 <div className='main-image'>
-                    <img src={detailedProduct.img1} alt='' className='large-image'/>
+                    <img src={selectedImg} alt='' className='large-image'/>
                 </div>
 
                 <div className='main-details'>
@@ -121,7 +121,7 @@ const Detail = () => {
                 <div className='related-products'>
                     {relatedProducts.map(item => (
                         <div className='related-product'>
-                            <img src={item.img1} alt='' className='medium-image'/>
+                            <img src={item.img1} alt='' className='medium-image product-image'/>
                             <Link to={`/detail/${item._id.$oid}`} className='product-demo-name'><h6>{item.name}</h6></Link>
                             <div className='small text-muted'>{(+item.price).toLocaleString('vi')} VND</div> 
                         </div>
