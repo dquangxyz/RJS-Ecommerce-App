@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 
 import { useDispatch } from 'react-redux'
@@ -13,30 +13,30 @@ const getFromStorage = (key) => {
     return JSON.parse(localStorage.getItem(key));
 }
 
-
-
 const Login = () => {
     let navigate = useNavigate();
-    const emailRef = useRef()
-    const passwordRef = useRef()
+    const [inputEmail, setInputEmail] = useState("")
+    const [inputPassword, setInputPassword] = useState("")
 
     const dispatch = useDispatch()
 
     const handlerClickSignin = () => {
         const userArr = getFromStorage("userArr") ? getFromStorage("userArr") : [];
-        const result = userArr.find(item => item.email === emailRef.current.value)
+        const result = userArr.find(item => item.email === inputEmail)
         if (result !== undefined){
-            if (result.password === passwordRef.current.value){
+            if (result.password === inputPassword){
                 // if successful, dispatch action 'onLogin' and send in some data (or payload)
                 // saveLocalStorage("currentSession", result)
                 dispatch(authActions.onLogin(result))
                 return navigate("/")
             } else {
                 alert("Wrong password")
+                setInputPassword("")
             }    
         } else {
             alert("No account found -please sign up")
-            return navigate("/register")
+            setInputEmail("")
+            setInputPassword("")
         }
     }
 
@@ -45,8 +45,8 @@ const Login = () => {
             <div className='signin-signup-wrapper'>
                 <div><h2>Sign In</h2></div>
                 <form onSubmit={e => e.preventDefault()}>
-                    <div><input ref={emailRef} placeholder='email'></input></div>
-                    <div><input ref={passwordRef} type='password' placeholder='password'></input></div>
+                    <div><input onChange={e=> setInputEmail(e.target.value)} value={inputEmail} placeholder='email'></input></div>
+                    <div><input onChange={e=> setInputPassword(e.target.value)} value={inputPassword} type='password' placeholder='password'></input></div>
                     <div>
                         <button 
                             className='btn-signup btn btn-dark btn-block text-white'

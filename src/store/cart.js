@@ -31,7 +31,7 @@ const cartSlice = createSlice({
         },
         clearCart(state){
             localStorage.removeItem('currentCart')
-            state = []
+            state.listCart = []
         }
     }
 })

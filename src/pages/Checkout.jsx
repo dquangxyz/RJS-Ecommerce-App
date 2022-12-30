@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useRef } from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Section from '../components/Layout/Section'
 import { useSelector, useDispatch } from 'react-redux'
 import { cartActions } from '../store/cart';
@@ -11,24 +12,35 @@ const formatCurrency = (num) => {
 const Checkout = () => {
     // global state
     const cart = useSelector(state => state.cart.listCart)
+    const { name: currentUserName, email: currentUserEmail, phone: currentUserPhone} = useSelector(state => state.auth.currentUser)
     const dispatch = useDispatch()
 
     // local state
     let total = 0 // to be displayed as total amount of the cart
-    const nameRef = useRef()
-    const emailRef = useRef()
-    const phoneRef = useRef()
-    const addressRef = useRef()
+    const [inputName, setInputName] = useState(currentUserName)
+    const [inputEmail, setInputEmail] = useState(currentUserEmail)
+    const [inputPhone, setInputPhone] = useState(currentUserPhone)
+    const [inputAddress, setInputAddress] = useState("")
+    const navigate = useNavigate()
 
     // handler functions
     const handlerPlaceOrder = (e) => {
-        console.log(nameRef.current.value)
-        if ( nameRef.current.value === "" || emailRef.current.value === "" || phoneRef.current.value === "" || addressRef.current.value === ""){
+        if ( inputName === "" || inputEmail === "" || inputPhone === "" || inputAddress === ""){
             alert("Please fill in the detail")
+            e.preventDefault()
+        } else if (!inputEmail.includes('@') ) {
+            alert("Wrong email format - Please enter your email correctly again")
+            e.preventDefault()
+        } else if (/^\d+$/.test(inputPhone) === false) {
+            alert("Phone number should only contains numbers")
+            e.preventDefault()
+        } else if (cart.length === 0) {
+            alert("Your current cart is empty")
             e.preventDefault()
         } else {
             alert("Placed order successfully")
             dispatch(cartActions.clearCart())
+            return navigate('/')
         }
     }
     
@@ -44,7 +56,8 @@ const Checkout = () => {
                         <div className='col-lg-12 form-group'>
                             <label className='text-small text-uppercase' htmlFor='Fullname'>Full Name:</label>
                             <input
-                                ref={nameRef}
+                                onChange={e=>setInputName(e.target.value)}
+                                value={inputName}
                                 className='form-control form-control-lg'
                                 type='text'
                                 placeholder='Enter Your Full Name Here!'
@@ -53,7 +66,8 @@ const Checkout = () => {
                         <div className='col-lg-12 form-group'>
                             <label className='text-small text-uppercase' htmlFor='Email'>Email:{' '}</label>
                             <input
-                                ref={emailRef}
+                                onChange={e=>setInputEmail(e.target.value)}
+                                value={inputEmail}
                                 className='form-control form-control-lg'
                                 type='text'
                                 placeholder='Enter Your Email Here!'
@@ -62,7 +76,8 @@ const Checkout = () => {
                         <div className='col-lg-12 form-group'>
                             <label className='text-small text-uppercase' htmlFor='Phone'>Phone Number:{' '}</label>
                             <input
-                                ref={phoneRef}
+                                onChange={e=>setInputPhone(e.target.value)}
+                                value={inputPhone}
                                 className='form-control form-control-lg'
                                 type='text'
                                 placeholder='Enter Your Phone Number Here!'
@@ -71,7 +86,8 @@ const Checkout = () => {
                         <div className='col-lg-12 form-group'>
                             <label className='text-small text-uppercase' htmlFor='Address'>Address:{' '}</label>
                             <input
-                                ref={addressRef}
+                                onChange={e=>setInputAddress(e.target.value)}
+                                value={inputAddress}
                                 className='form-control form-control-lg'
                                 type='text'
                                 placeholder='Enter Your Address Here!'
